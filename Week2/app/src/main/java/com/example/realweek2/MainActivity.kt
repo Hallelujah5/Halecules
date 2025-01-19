@@ -11,11 +11,11 @@ import androidx.core.view.WindowInsetsCompat
 
 
 
-lateinit var btnPlus: Button
-lateinit var btnMinus: Button
-lateinit var txtName:EditText
-lateinit var txtName2:EditText
-lateinit var txtResult:EditText
+    lateinit var btnPlus: Button
+    lateinit var btnMinus: Button
+    lateinit var txtName:EditText
+    lateinit var txtName2:EditText
+    lateinit var txtResult:EditText
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
