@@ -11,14 +11,15 @@ import androidx.core.view.WindowInsetsCompat
 
 
 
+
+
+
+class MainActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var btnPlus: Button
     lateinit var btnMinus: Button
     lateinit var txtName:EditText
     lateinit var txtName2:EditText
     lateinit var txtResult:EditText
-
-
-class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
