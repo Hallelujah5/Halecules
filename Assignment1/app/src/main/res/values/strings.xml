@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WallClimbing_app</string>
+    <string name="lang_switch">lang switch</string>
+    <string name="wall_climb_score_calculator">WALL CLIMB SCORE CALCULATOR</string>
+    <string name="current_score">Current score:</string>
+    <string name="climb">CLIMB</string>
+    <string name="fall">FALL</string>
+    <string name="reset">Reset</string>
+</resources>
