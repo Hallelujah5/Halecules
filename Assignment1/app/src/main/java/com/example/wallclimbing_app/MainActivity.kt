@@ -88,11 +88,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             R.id.langSwitchBtn->{
                 val newLang = if (Locale.getDefault().language == "en") "vi" else "en"
-                val locale = Locale(newLang)
-                Locale.setDefault(locale)
+                val newLocale = Locale(newLang)
+                Locale.setDefault(newLocale)
 
                 val config = resources.configuration
-                config.setLocale(locale)
+                config.setLocale(newLocale)
                 resources.updateConfiguration(config, resources.displayMetrics)
 
                 recreate()

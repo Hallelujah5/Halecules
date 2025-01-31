@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name"> Ứng dụng tính điểm leo tường  </string>
+    <string name="lang_switch"> Ngôn ngữ </string>
+    <string name="wall_climb_score_calculator"> ỨNG DỤNG TÍNH ĐIỂM LEO TƯỜNG </string>
+    <string name="current_score">Điểm hiện tại:</string>
+    <string name="climb">TRÈO</string>
+    <string name="fall">NGÃ</string>
+    <string name="reset">LÀM LẠI</string>
+</resources>
