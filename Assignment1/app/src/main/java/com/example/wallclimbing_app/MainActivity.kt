@@ -2,7 +2,6 @@ package com.example.wallclimbing_app
 
 import android.os.Bundle
 import android.util.Log
-import android.view.Display
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -48,7 +47,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         ResetBtn.setOnClickListener(this)
         langSwitch.setOnClickListener(this)
 
-        DisplayScore(current_score)
+        DisplayScore(current_score) //initially show the score
     }
 
     override fun onClick(v: View?) {
@@ -60,8 +59,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     Log.d("Fallen", "The user has fallen with $score score, hold: $currentHold")
                     DisplayScore(current_score)
                 }
-
             }
+
             R.id.ClimbBtn-> {
                 if (!isFallen && currentHold != 9){
                     currentHold++
@@ -73,9 +72,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
                     Log.d("Climbed", "Current score is $score, hold: $currentHold")
                     DisplayScore(current_score)
+                    //this function is used after every button click to accurately display the score.
 
                 }
             }
+
             R.id.resetBtn-> {
                 score = 0
                 currentHold = 0
@@ -93,9 +94,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
                 val config = resources.configuration
                 config.setLocale(newLocale)
-                resources.updateConfiguration(config, resources.displayMetrics)
+                resources.updateConfiguration(config, resources.displayMetrics) //i know this is deprecated, but it still works.
 
-                recreate()
+                recreate()  //refresh the app to display the new language.
             }
 
 
@@ -132,11 +133,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
  */
 
+
+    /*==========FUNCTIONS==========*/
+
     private fun DisplayScore(currentScore:TextView) {
         currentScore.text = score.toString()
         currentScore.setTextColor(
             when (currentHold) {
-                in 1..3 -> ContextCompat.getColor(this,R.color.blue)
+                in 1..3 -> ContextCompat.getColor(this,R.color.blue)        //must create the colors in colors.xml beforehand
                 in 4..6 -> ContextCompat.getColor(this,R.color.green)
                 in 7..9 -> ContextCompat.getColor(this,R.color.red)
                 else -> {ContextCompat.getColor(this,R.color.black)}
