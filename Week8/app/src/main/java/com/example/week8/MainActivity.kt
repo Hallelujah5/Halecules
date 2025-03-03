@@ -2,12 +2,14 @@ package com.example.week8
 
 import android.content.Context
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+    lateinit var txtInfo : TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -16,11 +18,16 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+
         }
 
-        var file = openFileOutput("test.txt", Context.MODE_PRIVATE)
-        var message = "Hello world!!!"
-        file.write(message.toByteArray())
+
+
+        txtInfo = findViewById(R.id.txtInfo)
+        var file = openFileInput("test.txt")
+        var data = ByteArray(1024)
+        file.read(data)
+        txtInfo.text = data.toString(Charsets.UTF_8)
         file.close()
     }
 }
