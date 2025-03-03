@@ -33,16 +33,29 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
 }
-
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.junit.ktx)
+
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
+
+    // AndroidX Testing
+    androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+        // ... other dependencies ...
+        androidTestImplementation("androidx.test.ext:junit:1.1.5")
+        androidTestImplementation("androidx.test:runner:1.5.2")
+        androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+        // ... other dependencies ...
+
 }

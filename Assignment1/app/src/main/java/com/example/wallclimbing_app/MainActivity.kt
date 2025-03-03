@@ -56,8 +56,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 if (currentHold >= 1 && currentHold != 9 && !isFallen){
                     score = maxOf (0, score - 3)    //to prevent negative score
                     isFallen = true
-                    Log.d("Fallen", "The user has fallen with $score score, hold: $currentHold")
+                    Log.d("MainApp", "The user has fallen with $score score, hold: $currentHold")
                     DisplayScore(current_score)
+                    //this function is used after every button click to accurately display the score.
                 }
             }
 
@@ -70,7 +71,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         in 7..9 -> score+=3
                     }
 
-                    Log.d("Climbed", "Current score is $score, hold: $currentHold")
+                    Log.d("MainApp", "Current score is $score, hold: $currentHold")
                     DisplayScore(current_score)
                     //this function is used after every button click to accurately display the score.
 
@@ -78,18 +79,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.resetBtn-> {
+                //reset everything to 0 as per requirement.
                 score = 0
                 currentHold = 0
                 isFallen = false
 
-                Log.d("Reset", "Game resetted.")
+                Log.d("MainApp", "Game resetted.")
                 DisplayScore(current_score)
+                //this function is used after every button click to accurately display the score.
 
             }
 
             R.id.langSwitchBtn->{
+                //toggle function.
                 val newLang = if (Locale.getDefault().language == "en") "vi" else "en"
                 val newLocale = Locale(newLang)
+                //set new locale
                 Locale.setDefault(newLocale)
 
                 val config = resources.configuration
@@ -136,14 +141,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     /*==========FUNCTIONS==========*/
 
-    private fun DisplayScore(currentScore:TextView) {
+    fun DisplayScore(currentScore:TextView) {
         currentScore.text = score.toString()
         currentScore.setTextColor(
             when (currentHold) {
                 in 1..3 -> ContextCompat.getColor(this,R.color.blue)        //must create the colors in colors.xml beforehand
                 in 4..6 -> ContextCompat.getColor(this,R.color.green)
                 in 7..9 -> ContextCompat.getColor(this,R.color.red)
-                else -> {ContextCompat.getColor(this,R.color.black)}
+                else -> {ContextCompat.getColor(this,R.color.black)}        //default
             }
         )
 
@@ -151,14 +156,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt("score", score)
+        outState.putInt("score", score)         //stores the score data with 'score' key string value
         outState.putInt("hold", currentHold)
         outState.putBoolean("isFallen", isFallen)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        score = savedInstanceState.getInt("score")
+        score = savedInstanceState.getInt("score")          //fetch the data attached with 'score' key string value
         currentHold = savedInstanceState.getInt("hold")
         isFallen = savedInstanceState.getBoolean("isFallen")
         DisplayScore(current_score)
