@@ -2,11 +2,14 @@ package com.example.week8
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Environment
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
     lateinit var txtInfo : TextView
@@ -21,13 +24,19 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        val file = File(Environment.getExternalStorageDirectory(),"/Documents/test.txt")
+        file.createNewFile()
+        file.writeText("Hello External Storage-uwu")
 
 
-        txtInfo = findViewById(R.id.txtInfo)
-        var file = openFileInput("test.txt")
-        var data = ByteArray(1024)
-        file.read(data)
-        txtInfo.text = data.toString(Charsets.UTF_8)
-        file.close()
+
+        val file_b = File(Environment.getExternalStorageDirectory(),"Documents/test2.txt").exists()
+        if (file_b){
+            val file = File(Environment.getExternalStorageDirectory(), "Documents/test2.txt")
+            txtInfo.text = file.readText()
+        }
+
+        else
+            Toast.makeText(this,"Not exists", Toast.LENGTH_SHORT).show()
     }
 }

@@ -10,6 +10,6 @@ data class Instrument(
     val rating: Float,
     val imageResId: Int,
     val year : Int,
-    val radioOptions : List<String>,
-    var rented : Boolean = false
+    val radioOptions : List<String>,        //list the choose-able options for each instrument
+    var rented : Boolean = false            //determines to show the "Rented!" message
 ) : Parcelable

@@ -5,14 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/bg">
+    android:background="@drawable/bg"
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/Ins_name_txtV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="46dp"
         android:fontFamily="@font/concert_one"
         android:text="TextView"
         android:textSize="30sp"
@@ -20,29 +20,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/txtInstrName6"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="564dp"-->
-<!--        android:fontFamily="@font/concert_one"-->
-<!--        android:text="Rented!"-->
-<!--        android:textSize="28sp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.501"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
     <TextView
-        android:id="@+id/ins_name_txtV2"
+        android:id="@+id/Bal_txtV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:fontFamily="@font/concert_one"
-        android:text="Balance:"
+        android:text="Budget: 200$"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.665"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,7 +75,7 @@
         android:id="@+id/Ins_ImgView"
         android:layout_width="256dp"
         android:layout_height="358dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="90dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +87,7 @@
         android:layout_width="236dp"
         android:layout_height="47dp"
         android:layout_marginStart="85dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="6dp"
         android:layout_marginEnd="86dp"
         android:isIndicator="true"
         android:progressTint="#89AC46"
