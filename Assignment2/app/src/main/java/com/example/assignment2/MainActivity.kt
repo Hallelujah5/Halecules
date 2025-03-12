@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     // FETCH FROM DETAIL ACTIVITY.KT
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-    private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         when (result.resultCode){
             RESULT_OK -> {
                 // FETCH UPDATED INSTRUMENT
