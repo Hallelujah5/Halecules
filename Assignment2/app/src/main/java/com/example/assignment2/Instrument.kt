@@ -13,3 +13,4 @@ data class Instrument(
     val radioOptions : List<String>,        //list the choose-able options for each instrument
     var rented : Boolean = false            //determines to show the "Rented!" message
 ) : Parcelable
+

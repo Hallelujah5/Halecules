@@ -15,7 +15,7 @@
         android:layout_marginTop="46dp"
         android:fontFamily="@font/concert_one"
         android:text="TextView"
-        android:textSize="30sp"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,10 +24,13 @@
         android:id="@+id/Bal_txtV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/round_border_white_bg"
         android:fontFamily="@font/concert_one"
-        android:text="Budget: 200$"
-        android:textSize="30sp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="200$"
+        android:textSize="33sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,39 +40,53 @@
         android:id="@+id/Rented_msg_txtV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="6dp"
         android:fontFamily="@font/concert_one"
         android:text="Rented!"
-        android:textSize="30sp"
+        android:textSize="33sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <TextView
-        android:id="@+id/txtInstrName2"
+        android:id="@+id/PriceTxtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="616dp"
+        android:layout_marginBottom="6dp"
         android:fontFamily="@font/concert_one"
         android:text="Price:"
+        android:textColor="#666666"
         android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/borrowBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.225"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.31"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/Ins_price_txtV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="616dp"
+        android:layout_marginBottom="6dp"
         android:fontFamily="@font/concert_one"
-        android:text="$/m"
-        android:textSize="28sp"
+        android:text="95$/"
+        android:textColor="#424242"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/borrowBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.721"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.687"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/concert_one"
+        android:text="mo"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/borrowBtn"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/Ins_ImgView"
@@ -91,6 +108,7 @@
         android:layout_marginEnd="86dp"
         android:isIndicator="true"
         android:progressTint="#89AC46"
+        android:secondaryProgressTint="#89AC46"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Ins_ImgView" />
@@ -101,6 +119,7 @@
         android:layout_height="50sp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Ins_ratingBar">
 
@@ -111,7 +130,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/concert_one"
             android:text="Electric"
-            android:textSize="28sp" />
+            android:textSize="30sp" />
 
         <RadioButton
             android:id="@+id/radioBtn2"
@@ -120,7 +139,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/concert_one"
             android:text="Vintage"
-            android:textSize="28sp" />
+            android:textSize="30sp" />
 
     </RadioGroup>
 

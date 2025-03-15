@@ -41,6 +41,7 @@ dependencies {
 
     implementation("androidx.activity:activity-ktx:1.10.1")
     implementation("androidx.fragment:fragment-ktx:1.8.6")
+    implementation(libs.androidx.ui.graphics.android)
 
     // Espresso dependencies
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

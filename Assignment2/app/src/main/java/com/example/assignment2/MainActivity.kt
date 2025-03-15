@@ -2,6 +2,7 @@ package com.example.assignment2
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -12,7 +13,6 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.RatingBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var nextBtn: Button
 
     private var bal = 200
-
 
     var instruments = mutableListOf(
         Instrument("Guitar", 49, 4f, R.drawable.guitar, 2013, listOf("Electric", "Vintage")),
@@ -99,8 +98,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     // DISPLAY THE CURRENT INSTRUMENT'S INFO
     private fun displayCurrentInstrument() {
-        findViewById<TextView>(R.id.Bal_txtV).text = "Budget: " + bal + "$"
-        findViewById<TextView>(R.id.Ins_name_txtV).text = currentIns.name // NAME
+        findViewById<TextView>(R.id.Bal_txtV).text = "$" + bal
         findViewById<ImageView>(R.id.Ins_ImgView).setImageResource(currentIns.imageResId) // IMAGE
         findViewById<RatingBar>(R.id.Ins_ratingBar).rating = currentIns.rating // RATING
 
@@ -109,10 +107,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         findViewById<TextView>(R.id.Rented_msg_txtV).text =  currentIns.name + " Rented!"
 
-        findViewById<TextView>(R.id.Ins_price_txtV).text = "${currentIns.price}$/m" // PRICE
-
+        findViewById<TextView>(R.id.Ins_price_txtV).text = "${currentIns.price}$/" // PRICE
         findViewById<TextView>(R.id.Rented_msg_txtV).visibility =           //SHOW THE "Rented!" MESSAGE IF AN INSTRUMENT IS BORROWED.
             if (currentIns.rented) View.VISIBLE else View.GONE
+
+        if (currentIns.rented) {
+            findViewById<TextView>(R.id.Ins_price_txtV).setPaintFlags(findViewById<TextView>(R.id.Ins_price_txtV).paintFlags or Paint.STRIKE_THRU_TEXT_FLAG);
+            findViewById<TextView>(R.id.Ins_name_txtV).text = currentIns.name + "\u2713" // NAME
+
+        } else {findViewById<TextView>(R.id.Ins_price_txtV).setPaintFlags(findViewById<TextView>(R.id.Ins_price_txtV).paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv());
+            findViewById<TextView>(R.id.Ins_name_txtV).text = currentIns.name // NAME
+        }
+
     }
 
 

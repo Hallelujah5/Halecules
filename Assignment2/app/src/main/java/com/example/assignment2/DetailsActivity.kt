@@ -35,7 +35,7 @@ class DetailsActivity : AppCompatActivity() {
 
 
     //RECYCLED CODE FROM MAIN ACTIVITY.KT
-    findViewById<TextView>(R.id.bal_txtV).setText("Budget: " + bal + "$")       //BALANCE
+    findViewById<TextView>(R.id.bal_txtV).setText("$" + bal)       //BALANCE
     findViewById<TextView>(R.id.Ins_name_txtV).text = currentIns?.name          //NAME
     currentIns?.imageResId?.let { findViewById<ImageView>(R.id.Ins_ImgView).setImageResource(it) }       //IMAGE
     findViewById<TextView>(R.id.Ins_year_txtV).text = currentIns?.year.toString()       //YEAR
@@ -43,7 +43,7 @@ class DetailsActivity : AppCompatActivity() {
     selectedRadio_txtV = findViewById(R.id.selectedRadio_txtV)
     selectedRadio_txtV.text = checkedRadio.toString()               //DISPLAY CHOICE
 
-    findViewById<TextView>(R.id.Ins_price_txtV).text = currentIns?.price.toString() + "$/m"        //PRICE
+    findViewById<TextView>(R.id.Ins_price_txtV).text = currentIns?.price.toString() + "$/"        //PRICE
 
 
 

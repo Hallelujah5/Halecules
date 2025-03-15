@@ -14,8 +14,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:fontFamily="@font/concert_one"
-        android:text="Budget: 200$"
-        android:textSize="30sp"
+        android:background="@drawable/round_border_white_bg"
+        android:text="200$"
+        android:textSize="33sp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,22 +41,22 @@
         android:id="@+id/saveBtn"
         android:layout_width="155dp"
         android:layout_height="68dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginBottom="70dp"
         android:backgroundTint="#00879E"
-        android:text="SAVE"
+        android:text="CONFIRM"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtInstrName2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/Ins_name_txtV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="46dp"
         android:fontFamily="@font/concert_one"
         android:text="TextView"
-        android:textSize="28sp"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -134,29 +137,42 @@
         app:srcCompat="@drawable/guitar" />
 
     <TextView
-        android:id="@+id/txtInstrName2"
+        android:id="@+id/PriceTxtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="636dp"
+        android:layout_marginBottom="28dp"
         android:fontFamily="@font/concert_one"
         android:text="Price:"
+        android:textColor="#505050"
         android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/saveBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.225"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.284"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/Ins_price_txtV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="636dp"
+        android:layout_marginBottom="28dp"
         android:fontFamily="@font/concert_one"
-        android:text="47$/m"
-        android:textSize="28sp"
+        android:text="47$/"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/saveBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.709"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.652"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="28dp"
+        android:fontFamily="@font/concert_one"
+        android:text="mo"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/saveBtn"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
