@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 
 class DetailsActivity : AppCompatActivity() {
@@ -45,6 +46,12 @@ class DetailsActivity : AppCompatActivity() {
 
     findViewById<TextView>(R.id.Ins_price_txtV).text = currentIns?.price.toString() + "$/"        //PRICE
 
+    if (currentIns != null) {
+        if (bal < currentIns.price){
+            findViewById<TextView>(R.id.Ins_price_txtV).setTextColor(ContextCompat.getColor(this, R.color.red))           //RED COLOR TO INDICATE INSUFFICIENT FUNDS
+        } else {findViewById<TextView>(R.id.Ins_price_txtV).setTextColor(ContextCompat.getColor(this, R.color.text))}
+    }
+
 
 
 
@@ -72,7 +79,7 @@ class DetailsActivity : AppCompatActivity() {
         }
         else {
             //RE-USED SNACKBAR FROM MAIN
-            val snackbar = Snackbar.make(findViewById(R.id.detail_main), "Insufficient funds!", Snackbar.LENGTH_SHORT)
+            val snackbar = Snackbar.make(findViewById(R.id.detail_main), "You do not have sufficient funds!", Snackbar.LENGTH_SHORT)
             snackbar.setAction("Dismiss") {
                 snackbar.dismiss()          //a dismiss button for the Snackbar
             }
