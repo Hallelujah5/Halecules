@@ -17,6 +17,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.snackbar.Snackbar
@@ -25,13 +26,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var borrowBtn: Button
     private lateinit var nextBtn: Button
 
-    private var bal = 200
+    private var bal = 500
 
     var instruments = mutableListOf(
-        Instrument("Guitar", 49, 4f, R.drawable.guitar, 2013, listOf("Electric", "Vintage")),
-        Instrument("Drumset", 63, 4.5f, R.drawable.drums, 2015, listOf("Acoustic", "Steel")),
-        Instrument("Piano", 95, 5f, R.drawable.piano, 2018, listOf("Digital", "Grand")),
-        Instrument("Violin", 51, 4f, R.drawable.violin, 2016, listOf("Bass", "Modern"))
+        Instrument("Guitar", 140, 4f, R.drawable.guitar, 2013, listOf("Electric", "Vintage")),
+        Instrument("Drumset", 205, 4.5f, R.drawable.drums, 2015, listOf("Acoustic", "Steel")),
+        Instrument("Piano", 315, 5f, R.drawable.piano, 2018, listOf("Digital", "Grand")),
+        Instrument("Violin", 112, 4f, R.drawable.violin, 2016, listOf("Bass", "Modern"))
     )
     private var currentIndex = 0
     private lateinit var currentIns: Instrument
@@ -113,11 +114,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         if (currentIns.rented) {
             findViewById<TextView>(R.id.Ins_price_txtV).setPaintFlags(findViewById<TextView>(R.id.Ins_price_txtV).paintFlags or Paint.STRIKE_THRU_TEXT_FLAG);
-            findViewById<TextView>(R.id.Ins_name_txtV).text = currentIns.name + "\u2713" // NAME
-
+            findViewById<TextView>(R.id.Ins_name_txtV).text = currentIns.name + "\u2713" // PRICE WITH A STRIKE THROUGH TEXT EFFECT
         } else {findViewById<TextView>(R.id.Ins_price_txtV).setPaintFlags(findViewById<TextView>(R.id.Ins_price_txtV).paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv());
-            findViewById<TextView>(R.id.Ins_name_txtV).text = currentIns.name // NAME
+            findViewById<TextView>(R.id.Ins_name_txtV).text = currentIns.name // NORMAL PRICE
         }
+        if (bal < currentIns.price && !currentIns.rented){        //IF CURRENT BALANCE DOES NOT SUFFICIENT TO BUY THE INSTRUMENT, HIGHLIGHT RED PRICES
+            findViewById<TextView>(R.id.Ins_price_txtV).setTextColor(ContextCompat.getColor(this, R.color.red))
+        } else {findViewById<TextView>(R.id.Ins_price_txtV).setTextColor(ContextCompat.getColor(this,R.color.text))}
 
     }
 
