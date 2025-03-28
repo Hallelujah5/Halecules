@@ -23,10 +23,10 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-    private lateinit var borrowBtn: Button
-    private lateinit var nextBtn: Button
+    lateinit var borrowBtn: Button
+    lateinit var nextBtn: Button
 
-    private var bal = 500
+    var bal = 500
 
     var instruments = mutableListOf(
         Instrument("Guitar", 140, 4f, R.drawable.guitar, 2013, listOf("Electric", "Vintage")),
@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         Instrument("Piano", 315, 5f, R.drawable.piano, 2018, listOf("Digital", "Grand")),
         Instrument("Violin", 112, 4f, R.drawable.violin, 2016, listOf("Bass", "Modern"))
     )
-    private var currentIndex = 0
-    private lateinit var currentIns: Instrument
+    var currentIndex = 0
+    lateinit var currentIns: Instrument
 
     // FETCH FROM DETAIL ACTIVITY.KT
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)

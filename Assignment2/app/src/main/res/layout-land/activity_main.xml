@@ -5,18 +5,31 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/bg2"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="624dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/concert_one"
+        android:text="mo"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/borrowBtn"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/Ins_name_txtV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="18dp"
         android:fontFamily="@font/concert_one"
         android:text="TextView"
-        android:textSize="34sp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,15 +37,15 @@
         android:id="@+id/Bal_txtV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:fontFamily="@font/concert_one"
+        android:layout_marginTop="16dp"
         android:background="@drawable/round_border_white_bg"
+        android:fontFamily="@font/concert_one"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:text="200$"
-        android:textSize="33sp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.962"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,64 +53,21 @@
         android:id="@+id/Rented_msg_txtV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginBottom="15dp"
         android:fontFamily="@font/concert_one"
-        android:background="@drawable/round_border_white_bg"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
         android:text="Rented!"
-        android:textSize="33sp"
+        android:textSize="37sp"
+        app:layout_constraintBottom_toTopOf="@+id/nextBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-    <TextView
-        android:id="@+id/PriceTxtView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
-        android:fontFamily="@font/concert_one"
-        android:text="Price:"
-        android:textColor="#666666"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toTopOf="@+id/borrowBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/Ins_price_txtV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
-        android:fontFamily="@font/concert_one"
-        android:text="95$/"
-        android:textColor="#424242"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/borrowBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.687"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="69dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/concert_one"
-        android:text="mo"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toTopOf="@+id/borrowBtn"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/Ins_ImgView"
         android:layout_width="256dp"
         android:layout_height="358dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/guitar" />
@@ -106,23 +76,50 @@
         android:id="@+id/Ins_ratingBar"
         android:layout_width="236dp"
         android:layout_height="47dp"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="86dp"
+        android:layout_marginTop="5dp"
         android:isIndicator="true"
         android:progressTint="#89AC46"
         android:secondaryProgressTint="#89AC46"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Ins_ImgView" />
+        app:layout_constraintTop_toBottomOf="@+id/Ins_name_txtV" />
+
+    <TextView
+        android:id="@+id/PriceTxtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/concert_one"
+        android:text="Price:"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/borrowBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/Ins_price_txtV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/concert_one"
+        android:text="47$/"
+        android:textColor="#373737"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toTopOf="@+id/borrowBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.209"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="300dp"
         android:layout_height="50sp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintHorizontal_bias="0.026"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Ins_ratingBar">
 
@@ -148,26 +145,28 @@
 
     <Button
         android:id="@+id/borrowBtn"
-        android:layout_width="155dp"
+        android:layout_width="185dp"
         android:layout_height="68dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginBottom="43dp"
         android:backgroundTint="#00879E"
         android:text="BORROW"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/nextBtn"
-        android:layout_width="155dp"
+        android:layout_width="185dp"
         android:layout_height="68dp"
-        android:layout_marginTop="184dp"
+        android:layout_marginBottom="43dp"
         android:backgroundTint="#FF6F6F"
         android:text="NEXT"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintHorizontal_bias="0.897"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
