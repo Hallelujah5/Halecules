@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
 class BookAdapter(private val context: Context, private var data: List<Book>) : RecyclerView.Adapter<BookAdapter.ViewHolder>() {
 
@@ -29,9 +30,15 @@ class BookAdapter(private val context: Context, private var data: List<Book>) : 
         private val bookRating: TextView = v.findViewById(R.id.bookRating)
 
         fun bind(item: Book) {
-            bookIcon.setImageResource(item.icon)
             bookTitle.text = item.title
             bookRating.text = item.rating
+
+            Picasso.get()
+                .load(item.imageURL)
+                .placeholder(android.R.drawable.picture_frame)
+                .error(android.R.drawable.alert_light_frame)
+                .into(bookIcon)
+
         }
     }
 

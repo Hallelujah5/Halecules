@@ -36,16 +36,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         val books = listOf(
-            Book(R.drawable.book_icon, "Book 1", "Rating: 4.5"),
-            Book(R.drawable.book_icon, "Book 2", "Rating: 3.5"),
-            Book(R.drawable.book_icon, "Book 3", "Rating: 5.0"),
-            Book(R.drawable.book_icon, "Book 4", "Rating: 4.0"),
-            Book(R.drawable.book_icon, "Book 5", "Rating: 3.0"),
-            Book(R.drawable.book_icon, "Book 6", "Rating: 4.5"),
-            Book(R.drawable.book_icon, "Book 7", "Rating: 3.5"),
-            Book(R.drawable.book_icon, "Book 8", "Rating: 5.0"),
-            Book(R.drawable.book_icon, "Book 9", "Rating: 4.0"),
-            Book(R.drawable.book_icon, "Book 10", "Rating: 3.0")
+            Book("https://covers.openlibrary.org/b/id/9999512-L.jpg", "Book 1", "Rating: 4.5"),
+            Book("https://covers.openlibrary.org/b/id/9999512-L.jpg", "Book 2", "Rating: 3.5"),
+            Book("https://covers.openlibrary.org/b/id/9999512-L.jpg", "Book 3", "Rating: 5.0"),
+            Book("https://covers.openlibrary.org/b/id/9999512-L.jpg", "Book 4", "Rating: 4.0"),
+            Book("https://covers.openlibrary.org/b/id/9999512-L.jpg", "Book 5", "Rating: 3.0"),
+            Book("https://covers.openlibrary.org/b/id/9999512-L.jpg", "Book 6", "Rating: 4.5"),
+            Book("https://covers.openlibrary.org/b/id/9999512-L.jpg", "Book 7", "Rating: 3.5"),
+            Book("https://covers.openlibrary.org/b/id/9999512-L.jpg", "Book 8", "Rating: 5.0"),
+            Book("https://covers.openlibrary.org/b/id/9999512-L.jpg", "Book 9", "Rating: 4.0"),
+            Book("https://covers.openlibrary.org/b/id/9999512-L.jpg", "Book 10", "Rating: 3.0")
         )
 
         val bookList = findViewById<RecyclerView>(R.id.bookList)

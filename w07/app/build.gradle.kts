@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "au.edu.swin.sdmd.w07_numberlist"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "au.edu.swin.sdmd.w07_numberlist"
         minSdk = 27
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -36,7 +36,7 @@ android {
 }
 
 dependencies {
-
+    implementation("com.squareup.picasso:picasso:2.71828")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
