@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ROW WITH IMAGE, TEXT, AND DELETE BUTTON -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+    <!-- EXERCISE IMAGE -->
+    <!-- EXERCISE NAME -->
+
+    <ImageView
+        android:id="@+id/imageWorkout"
+        android:layout_width="373dp"
+        android:layout_height="234dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:contentDescription="EXERCISE ICON"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- CALORIES AND MINUTES -->
+
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="21dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/imageWorkout"
+        app:layout_constraintStart_toStartOf="@id/imageWorkout"
+        app:srcCompat="@drawable/detail_fire"
+
+        />
+
+    <TextView
+        android:id="@+id/textWorkoutName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="36dp"
+        android:text="Workout Name"
+        android:textColor="#FFFFFF"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/imageWorkout"
+        app:layout_constraintStart_toStartOf="@id/imageWorkout" />
+
+    <!-- WORKOUT DETAILS - just below the name -->
+
+    <!-- DELETE BUTTON -->
+
+    <TextView
+        android:id="@+id/textWorkoutDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="10dp"
+        android:text="Calories • 20 mins"
+        android:textColor="#EEEEEE"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/imageWorkout"
+        app:layout_constraintStart_toStartOf="@id/imageWorkout"
+        app:layout_constraintTop_toBottomOf="@id/textWorkoutName"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:backgroundTint="#38D3D3D3"
+        android:text="X"
+        android:textSize="20sp"
+        app:cornerRadius="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
