@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels  // SWITCH TO ACTIVITY SCOPE
+import com.google.android.material.snackbar.Snackbar
 
 class AddExerciseFragment : Fragment() {
-    private val viewModel: WorkoutViewModel by viewModels()
+    // SHARE VIEWMODEL WITH WORKOUTFRAGMENT FOR CONSISTENCY
+    private val viewModel: WorkoutViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,6 +48,12 @@ class AddExerciseFragment : Fragment() {
                 try {
                     viewModel.addWorkout(name, cal, mins, R.drawable.placeholder)
                     println("WORKOUT ADDED")
+                    // SHOW SNACKBAR BEFORE POPPING BACK
+                    Snackbar.make(
+                        view,  // ROOT VIEW FOR DISPLAY
+                        "ADDED $name",
+                        Snackbar.LENGTH_SHORT  // SHORTER SINCE NO UNDO
+                    ).show()
                     parentFragmentManager.popBackStack()
                 } catch (e: Exception) {
                     println("ADD WORKOUT FAILED: $e")

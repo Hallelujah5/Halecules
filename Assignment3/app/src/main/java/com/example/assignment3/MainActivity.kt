@@ -36,12 +36,20 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             coroutineScope.launch {  // RUN ON IO THREAD
                 val dao = db.workoutDao()
-                dao.clearAll()
+
                 val currentWorkouts = dao.getAll().first()  // SAFE IN COROUTINE
                 if (currentWorkouts.isEmpty()) {  // CHECK IF DB IS EMPTY
                     dao.insert(Workout(name = "BENCH PRESS", cal = 100, mins = 10, imageResId = R.drawable.benchpress))
-                    dao.insert(Workout(name = "CABLE ROW", cal = 150, mins = 15, imageResId = R.drawable.cablerow))
+                    dao.insert(Workout(name = "CABLE CROSSOVER", cal = 150, mins = 15, imageResId = R.drawable.cablerow))
                     dao.insert(Workout(name = "CABLE PULLDOWN", cal = 200, mins = 20, imageResId = R.drawable.cablepulldown))
+                    dao.insert(Workout(name = "PULL UP", cal = 250, mins = 8, imageResId = R.drawable.pull_up))
+                    dao.insert(Workout(name = "DUMBELL ROW", cal = 175, mins = 8, imageResId = R.drawable.dumbell_row))
+                    dao.insert(Workout(name = "SQUATS", cal = 325, mins = 15, imageResId = R.drawable.squats))
+                    dao.insert(Workout(name = "CABLE ROW", cal = 125, mins = 12, imageResId = R.drawable.cable_row))
+                    dao.insert(Workout(name = "DUMBELL PRESS", cal = 290, mins = 15, imageResId = R.drawable.dumbell_press))
+
+
+
                 }
             }
         }

@@ -33,7 +33,7 @@ class WorkoutFragment : Fragment() {
         //SET VERTICAL SCROLLING
         recyclerView.layoutManager = LinearLayoutManager(context)
         //CREATE ADAPTER
-        val adapter = WorkoutAdapter(emptyList()) {workouts -> viewModel.deleteWorkout(workouts)}
+        val adapter = WorkoutAdapter(mutableListOf()) {workouts -> viewModel.deleteWorkout(workouts)}
         recyclerView.adapter = adapter
 
         //SETTING UP AN OBSERVER, TO WATCH CHANGES AND UPDATE ADAPTTTT
@@ -50,7 +50,7 @@ class WorkoutFragment : Fragment() {
                     .addToBackStack(null)
                     .commit()
             } catch (e: Exception) {
-                println("ADD TRANSACTION FAILED: $e")  // CATCH CRASH
+                println("ADD WORKOUT FAILED: $e")  // CATCH CRASH
             }
         }
 

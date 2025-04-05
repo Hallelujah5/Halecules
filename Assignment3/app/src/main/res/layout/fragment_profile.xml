@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- PROFILE SCREEN WITH DYNAMIC HOURS INSIDE IMAGEVIEW10 -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- COG ICON TOP RIGHT -->
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="60dp"
@@ -16,9 +17,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profile_cog" />
 
+    <!-- PROFILE HEADER IMAGE -->
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="389dp"
+        android:layout_width="0dp"
         android:layout_height="221dp"
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,16 +28,31 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView9"
         app:srcCompat="@drawable/profile" />
 
+    <!-- HOURS SPENT BACKGROUND IMAGE -->
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="117dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:srcCompat="@drawable/hours_spent" />
+        app:srcCompat="@drawable/profile_hourspent" />
 
+    <!-- HOURS SPENT TEXT INSIDE IMAGEVIEW10, MIDDLE-LEFT -->
+    <TextView
+        android:id="@+id/textHours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="@id/imageView10"
+        app:layout_constraintStart_toStartOf="@id/imageView10"
+        app:layout_constraintTop_toTopOf="@id/imageView10" />
+
+    <!-- FAVORITE EXERCISE LABEL -->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
@@ -47,9 +64,10 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView10"
         tools:layout_editor_absoluteX="16dp" />
 
+    <!-- RECOMMENDED EXERCISE IMAGE -->
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="288dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"

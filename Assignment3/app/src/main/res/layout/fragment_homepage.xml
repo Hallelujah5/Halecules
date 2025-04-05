@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- HOMEPAGE WITH DYNAMIC RECOMMENDED WORKOUT ROW -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp">
 
-
+    <!-- AVATAR LOGO TOP LEFT -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/avt_logo" />
 
+    <!-- NOTIFICATION BELL TOP RIGHT -->
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="60dp"
@@ -28,6 +29,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/notif_bell" />
 
+    <!-- TEST BAR BELOW AVATAR -->
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="290dp"
@@ -38,6 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/test_bar" />
 
+    <!-- TEST MARK RIGHT OF TEST BAR -->
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="57dp"
@@ -48,16 +51,17 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/testmark" />
 
+    <!-- CALENDAR BELOW TEST BAR -->
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="384dp"
+        android:layout_width="0dp"
         android:layout_height="283dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:srcCompat="@drawable/calendar" />
 
+    <!-- RECOMMENDED EXERCISE LABEL -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -71,13 +75,63 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="396dp"
-        android:layout_height="287dp"
+    <!-- DYNAMIC RECOMMENDED WORKOUT ROW MATCHING ITEM_WORKOUT -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/recommendedRow"
+        android:layout_width="0dp"
+        android:layout_height="234dp"
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/rcmex" />
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+    <!-- WORKOUT IMAGE BACKGROUND -->
+    <ImageView
+        android:id="@+id/recommendedImage"
+        android:layout_width="0dp"
+        android:layout_height="234dp"
+        android:contentDescription="RECOMMENDED EXERCISE ICON"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/benchpress" />
+
+    <!-- SMALL ICON (FIRE) LIKE ITEM_WORKOUT -->
+    <ImageView
+        android:id="@+id/recommendedIcon"
+        android:layout_width="21dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/recommendedImage"
+        app:layout_constraintStart_toStartOf="@id/recommendedImage"
+        app:srcCompat="@drawable/detail_fire" />
+
+    <!-- WORKOUT NAME OVERLAY -->
+    <TextView
+        android:id="@+id/recommendedName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="36dp"
+        android:text="BENCH PRESS"
+        android:textColor="#FFFFFF"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/recommendedImage"
+        app:layout_constraintStart_toStartOf="@id/recommendedImage" />
+
+    <!-- WORKOUT DETAILS OVERLAY BELOW NAME -->
+    <TextView
+        android:id="@+id/recommendedDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="10dp"
+        android:text="100 CAL • 10 MIN"
+        android:textColor="#EEEEEE"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/recommendedImage"
+        app:layout_constraintStart_toStartOf="@id/recommendedImage"
+        app:layout_constraintTop_toBottomOf="@id/recommendedName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
