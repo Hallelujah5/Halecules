@@ -54,6 +54,24 @@ dependencies {
     // Coroutines
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
+    testImplementation ("junit:junit:4.13.2")
+    testImplementation ("androidx.test:core:1.5.0")
+    testImplementation ("org.mockito:mockito-core:5.11.0")
+    testImplementation ("androidx.arch.core:core-testing:2.2.0")  // For LiveData testingtestImplementation 'junit:junit:4.13.2'
+    testImplementation ("androidx.test:core:1.5.0")
+    testImplementation ("org.mockito:mockito-core:5.11.0")
+    testImplementation ("androidx.arch.core:core-testing:2.2.0")  // For LiveData testing
+
+
+    // Instrumented tests
+    androidTestImplementation ("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation ("androidx.test:runner:1.5.2")
+    androidTestImplementation ("androidx.test:rules:1.5.0")
+    androidTestImplementation ("androidx.room:room-testing:2.6.1")
+    androidTestImplementation ("androidx.fragment:fragment-testing:1.6.2")
+
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

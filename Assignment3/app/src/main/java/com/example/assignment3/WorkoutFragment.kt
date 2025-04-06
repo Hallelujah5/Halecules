@@ -7,53 +7,61 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-
 class WorkoutFragment : Fragment() {
-    //DECLARE VIEWMODEL WITH FACTORY OT CONNECT TO ROOM VIA DAO
-    private val viewModel: WorkoutViewModel by activityViewModels()  // ACTIVITY SCOPE
+    val viewModel: WorkoutViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        //inflate the workout layout
         val view = inflater.inflate(R.layout.fragment_workout, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewWorkouts)
         val addButton = view.findViewById<Button>(R.id.buttonAdd)
 
-        //DAO setup
-        viewModel.dao = (requireActivity() as MainActivity).db.workoutDao()
+        // ONLY SET DAO FROM MAINACTIVITY IF IT'S THE RIGHT TYPE
+        if (requireActivity() is MainActivity) {
+            viewModel.dao = (requireActivity() as MainActivity).db.workoutDao()
+        }  // ELSE ASSUME TEST HAS SET IT
 
-        //SET VERTICAL SCROLLING
         recyclerView.layoutManager = LinearLayoutManager(context)
-        //CREATE ADAPTER
-        val adapter = WorkoutAdapter(mutableListOf()) {workouts -> viewModel.deleteWorkout(workouts)}
+        val adapter = WorkoutAdapter(mutableListOf()) { workout ->
+            viewModel.deleteWorkout(workout)
+        }
         recyclerView.adapter = adapter
 
-        //SETTING UP AN OBSERVER, TO WATCH CHANGES AND UPDATE ADAPTTTT
-        viewModel.workouts.observe(viewLifecycleOwner){ workouts -> adapter.updateWorkouts(workouts)}
+        viewModel.workouts.observe(viewLifecycleOwner) { workouts ->
+            adapter.updateWorkouts(workouts)
+        }
 
-
-
-        // ADD BUTTON TO GO TO ADD SCREEN
         addButton.setOnClickListener {
-            println("ADD BUTTON CLICKED")  // DEBUG LOG
+            println("ADD BUTTON CLICKED")
             try {
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, AddExerciseFragment())
                     .addToBackStack(null)
                     .commit()
             } catch (e: Exception) {
-                println("ADD WORKOUT FAILED: $e")  // CATCH CRASH
+                println("ADD WORKOUT FAILED: $e")
             }
         }
 
+        //Code for investigation video, testing with/without Coroutine threads
+        testBulkInsert(true)
         return view
+    }
+
+    private fun testBulkInsert(useCoroutines: Boolean) {
+        for (i in 1..500) {
+            viewModel.addWorkout("Workout $i", 100, 20, R.drawable.placeholder, useCoroutines)
+        }
+    }
+
+
+    fun setupTestWorkout(name: String, cal: Int, mins: Int, imageResId: Int) {
+        viewModel.addWorkout(name, cal, mins, imageResId)
     }
 }

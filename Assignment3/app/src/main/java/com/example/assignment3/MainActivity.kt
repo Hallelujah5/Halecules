@@ -21,16 +21,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-
+        db = AppDatabase.getDatabase(this)
 //        // CLEAR DATABASE FILE
 //        applicationContext.deleteDatabase("Fitness-app-db")
 
 
-        db = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java,
-            "Fitness-app-db"
-        ).build()
+//        db = Room.databaseBuilder(
+//            applicationContext,
+//            AppDatabase::class.java,
+//            "Fitness-app-db"
+//        ).build()
 
         // SEED DATABASE ON FIRST LAUNCH IN BACKGROUND
         if (savedInstanceState == null) {

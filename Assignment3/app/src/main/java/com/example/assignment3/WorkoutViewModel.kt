@@ -14,10 +14,14 @@ class WorkoutViewModel : ViewModel() {
     val workouts: LiveData<List<Workout>> by lazy { dao.getAll().asLiveData() }
 
     // ADD A NEW WORKOUT WITH IMAGE ON IO THREAD
-    fun addWorkout(name: String, cal: Int, mins: Int, imageResId: Int) {
-        viewModelScope.launch(Dispatchers.IO) {  // SWITCH TO IO DISPATCHER
-            val workout = Workout(name = name, cal = cal, mins = mins, imageResId = imageResId)
-            dao.insert(workout)  // NOW SAFE ON BACKGROUND THREAD
+    fun addWorkout(name: String, cal: Int, mins: Int, imageResId: Int, useCoroutines: Boolean = true) {
+        val workout = Workout(name = name, cal = cal, mins = mins, imageResId = imageResId)
+        if (useCoroutines) {
+            viewModelScope.launch(Dispatchers.IO) {  // VARIANT 2: COROUTINES
+                dao.insert(workout)
+            }
+        } else {
+            dao.insert(workout)  // VARIANT 1: MAIN THREAD
         }
     }
 
